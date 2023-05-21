@@ -1,0 +1,10 @@
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\bin\Debug\netcoreapp3.1\BotFormRecognizer.deps.json
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\bin\Debug\netcoreapp3.1\BotFormRecognizer.dll
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\bin\Debug\netcoreapp3.1\BotFormRecognizer.pdb
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.csproj.AssemblyReference.cache
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.AssemblyInfoInputs.cache
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.AssemblyInfo.cs
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.csproj.CoreCompileInputs.cache
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.dll
+C:\Users\shane\NividaGraphicsBot\BotFormRecognizer\obj\Debug\netcoreapp3.1\BotFormRecognizer.pdb

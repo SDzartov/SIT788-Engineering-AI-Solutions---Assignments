@@ -1,0 +1,233 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "NividaGraphicsBot",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "DYrrlW"
+          },
+          "activity": "${SendActivity_DYrrlW()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "uNqftq"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_uNqftq()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true
+          },
+          "choices": [
+            "Help me select a Nivida graphics card."
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "VWV1dX"
+          },
+          "activity": "${SendActivity_VWV1dX()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "EFXBx0"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_EFXBx0()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineSeparator": "---",
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
+          },
+          "choices": [
+            "Text",
+            "Screenshot"
+          ],
+          "style": "heroCard",
+          "outputFormat": "index",
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "property": "user.choice"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "9KrsUG"
+          },
+          "condition": "=user.choice",
+          "cases": [
+            {
+              "value": "0",
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "fTEdO1"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${TextInput_Prompt_fTEdO1()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "property": "user.text"
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "NRp1G8"
+                  },
+                  "resultProperty": "turn.content",
+                  "method": "POST",
+                  "contentType": "application/json",
+                  "headers": {},
+                  "body": {
+                    "data": "${user.text}"
+                  },
+                  "responseType": "json",
+                  "url": "http://953c3d9f-4440-43ee-b6b6-d051e2185251.australiaeast.azurecontainer.io/score"
+                }
+              ]
+            },
+            {
+              "value": "1",
+              "actions": [
+                {
+                  "$kind": "Microsoft.AttachmentInput",
+                  "$designer": {
+                    "id": "P7iHa8"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${AttachmentInput_Prompt_P7iHa8()}",
+                  "property": "user.image"
+                },
+                {
+                  "$kind": "BotFormRecognizer",
+                  "$designer": {
+                    "id": "RlsGxJ"
+                  },
+                  "FileUrl": "${user.image.contenturl}",
+                  "FileName": "${user.image.name}",
+                  "resultProperty": "user.result1"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "X8QxKy"
+                  },
+                  "activity": "${SendActivity_X8QxKy()}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "vGYRWR"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.result2",
+                      "value": "=toLower(user.result1)"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "KSatSp"
+                  },
+                  "activity": "${SendActivity_KSatSp()}"
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "VfRn3M"
+                  },
+                  "resultProperty": "turn.content",
+                  "method": "POST",
+                  "contentType": "application/json",
+                  "responseType": "json",
+                  "body": {
+                    "data": "${user.result2}"
+                  },
+                  "url": "http://953c3d9f-4440-43ee-b6b6-d051e2185251.australiaeast.azurecontainer.io/score"
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "8MzDlD"
+              },
+              "activity": "${SendActivity_8MzDlD()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "dn38Dq"
+          },
+          "activity": "${SendActivity_dn38Dq()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "L6Mamy"
+          },
+          "activity": "${SendActivity_L6Mamy()}"
+        },
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "Y20heb"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "NividaGraphicsBot.lg",
+  "id": "NividaGraphicsBot",
+  "recognizer": "NividaGraphicsBot.lu.qna"
+}

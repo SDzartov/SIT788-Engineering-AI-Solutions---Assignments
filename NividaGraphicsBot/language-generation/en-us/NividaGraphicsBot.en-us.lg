@@ -1,0 +1,80 @@
+[import](common.lg)
+
+# SendActivity_DYrrlW()
+[Activity
+    Text = ${SendActivity_DYrrlW_text()}
+]
+
+# SendActivity_DYrrlW_text()
+- Hello, welcome to the Nvidia Graphics Card Recommender Bot.
+# ChoiceInput_Prompt_uNqftq()
+[Activity
+    Text = ${ChoiceInput_Prompt_uNqftq_text()}
+]
+
+# ChoiceInput_Prompt_uNqftq_text()
+- How can I help you today?
+# SendActivity_VWV1dX()
+[Activity
+    Text = ${SendActivity_VWV1dX_text()}
+]
+
+# SendActivity_VWV1dX_text()
+- Great! I can help you with that. You can input the name of the minimum graphics via the steam page of a game or simply upload a screenshot of those requirements.
+# ChoiceInput_Prompt_EFXBx0()
+[Activity
+    Text = ${ChoiceInput_Prompt_EFXBx0_text()}
+]
+
+# ChoiceInput_Prompt_EFXBx0_text()
+- Which method would you like to use?
+# SendActivity_L6Mamy()
+[Activity
+    Text = ${SendActivity_L6Mamy_text()}
+]
+
+# SendActivity_L6Mamy_text()
+- Thank you for using the Nividia Graphics Card Recommender Bot.
+# SendActivity_dn38Dq()
+[Activity
+    Text = ${SendActivity_dn38Dq_text()}
+]
+
+# SendActivity_dn38Dq_text()
+- ```Processing Complete! I recommend the following graphics cards:     
+${turn.content.content}```
+# SendActivity_8MzDlD()
+[Activity
+    Text = ${SendActivity_8MzDlD_text()}
+]
+
+# SendActivity_8MzDlD_text()
+- ERROR: NO INPUT SELECTED
+# TextInput_Prompt_fTEdO1()
+[Activity
+    Text = ${TextInput_Prompt_fTEdO1_text()}
+]
+
+# TextInput_Prompt_fTEdO1_text()
+- Please enter the minimum graphics card model from Steam in lowercase. 
+# AttachmentInput_Prompt_P7iHa8()
+[Activity
+    Text = ${AttachmentInput_Prompt_P7iHa8_text()}
+]
+
+# AttachmentInput_Prompt_P7iHa8_text()
+- Please upload a screenshot of the minimum requirements from Steam
+# SendActivity_KSatSp()
+[Activity
+    Text = ${SendActivity_KSatSp_text()}
+]
+
+# SendActivity_KSatSp_text()
+- I see your looking for suggestions for a graphics card with the minimum option of a ${user.result2}? No problem, processing now.
+# SendActivity_X8QxKy()
+[Activity
+    Text = ${SendActivity_X8QxKy_text()}
+]
+
+# SendActivity_X8QxKy_text()
+- ${user.result1}
